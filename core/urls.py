@@ -6,12 +6,15 @@ from .views import(
     lista_veiculos,
     lista_movrot,
     lista_mensalistas,
-    lista_movmen,)
+    lista_movmen,
+    pessoa_novo,
+)
 
 
 urlpatterns = [
     re_path('^$', home, name='core_home'),
     re_path('^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
+    re_path('^pessoas-novo/$', pessoa_novo, name='core_pessoa_novo'),
     re_path('^veiculos/$', lista_veiculos, name='core_lista_veiculos'),
     re_path('^movrot/$', lista_movrot, name='core_lista_movrot'),
     re_path('^mensalistas/$', lista_mensalistas, name='core_lista_mensalistas'),
