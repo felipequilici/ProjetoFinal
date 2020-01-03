@@ -5,7 +5,7 @@ from core.models import (
     pessoa,
     veiculo,
     movimento_rotativo,
-    mensalistas,
+    mensalista,
     MovimentosMensalista)
 
 
@@ -27,9 +27,9 @@ def lista_movrot(request):
     return render(request, 'core/lista_movrot.html', {'movrot': movrot})
 
 def lista_mensalistas(request):
-    mensalistas = mensalistas.objects.all()
-    return render(request, 'core/lista_movrot.html', {'mensalistas': mensalistas})
+    mensalistas = mensalista.objects.all()
+    return render(request, 'core/lista_mensalistas.html', {'mensalistas': mensalistas})
 
-def lista_movrot(request):
+def lista_movmen(request):
     movmen = MovimentosMensalista.objects.all()
-    return render(request, 'core/lista_movrot.html', {'movmen': movmen})
+    return render(request, 'core/lista_movmen.html', {'movmen': movmen})

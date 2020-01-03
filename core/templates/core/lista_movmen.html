@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pessoas</title>
+    <title>Mensalidades</title>
 </head>
 <body>
-<h2>Lista Pessoas</h2>
+<h2>Lista Mensalidades</h2>
 <ul>
-    {% for pessoa in pessoas%}
-        <li>    {{pessoa.nome}}</li>
+    {% for mov in movmen%}
+        <li>  {{mov.dataPagamento}} - {{mov}} - {{mov.total}}  </li>
     {% endfor%}
 </ul>
 
