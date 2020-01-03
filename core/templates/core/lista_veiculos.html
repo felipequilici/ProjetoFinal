@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pessoas</title>
+    <title>Veiculos</title>
 </head>
 <body>
-<h2>Lista Pessoas</h2>
+<h2>Lista Veiculos</h2>
 <ul>
-    {% for pessoa in pessoas%}
-        <li>    {{pessoa.nome}}</li>
+    {% for veiculo in veiculos%}
+        <li>    {{veiculo.placa}} - {{veiculo.modelo}}</li>
     {% endfor%}
 </ul>
 

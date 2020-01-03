@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Pessoas</title>
 </head>
 <body>
-$END$
+<h2>Lista Pessoas</h2>
+<ul>
+    {% for pessoa in pessoas%}
+        <li>    {{pessoa.nome}}</li>
+    {% endfor%}
+</ul>
+
 </body>
 </html>
