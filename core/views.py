@@ -10,6 +10,8 @@ from core.models import (
 from .forms import (
     PessoaForm,
     VeiculoForm,
+    MovrotForm,
+    MensalistaForm,
 )
 
 
@@ -44,11 +46,27 @@ def veiculo_novo(request):
 
 def lista_movrot(request):
     movrot = movimento_rotativo.objects.all()
-    return render(request, 'core/lista_movrot.html', {'movrot': movrot})
+    form = MovrotForm()
+    data = {'movrot': movrot, 'form': form}
+    return render(request, 'core/lista_movrot.html', data)
+
+def movrot_novo(request):
+    form = MovrotForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_movrot')
 
 def lista_mensalistas(request):
     mensalistas = mensalista.objects.all()
-    return render(request, 'core/lista_mensalistas.html', {'mensalistas': mensalistas})
+    form = MensalistaForm()
+    data = {'mensalistas': mensalistas, 'form': form}
+    return render(request, 'core/lista_mensalistas.html', data)
+
+def mensalista_novo(request):
+    form = MensalistaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_mensalistas')
 
 def lista_movmen(request):
     movmen = MovimentosMensalista.objects.all()
