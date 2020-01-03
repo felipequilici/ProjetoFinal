@@ -4,6 +4,7 @@ from .models import (
     veiculo,
     movimento_rotativo,
     mensalista,
+    MovimentosMensalista,
 )
 
 
@@ -25,5 +26,10 @@ class MovrotForm(ModelForm):
 class MensalistaForm(ModelForm):
     class Meta:
         model = mensalista
+        fields = '__all__'
+
+class MovmenForm(ModelForm):
+    class Meta:
+        model = MovimentosMensalista
         fields = '__all__'
 
