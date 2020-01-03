@@ -8,7 +8,9 @@
 <h2>Lista Movimentos Rotativos</h2>
 <ul>
     {% for mov in movrot%}
-        <li>    {{mov.entrada}} - {{mov}} - {{mov.total}}</li>
+        <li>
+            <a href="{% url 'core_movrot_update' mov.id%}">{{mov.entrada}} - {{mov}} - {{mov.total}}</a>
+        </li>
     {% endfor%}
 </ul>
 

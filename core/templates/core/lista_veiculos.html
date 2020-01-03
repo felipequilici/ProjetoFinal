@@ -8,7 +8,9 @@
 <h2>Lista Veiculos</h2>
 <ul>
     {% for veiculo in veiculos%}
-        <li>    {{veiculo.placa}} - {{veiculo.modelo}}</li>
+        <li>
+            <a href="{% url 'core_veiculo_update' veiculo.id%}">{{veiculo.placa}} - {{veiculo.modelo}}</a>
+        </li>
     {% endfor%}
 </ul>
 

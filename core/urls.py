@@ -11,24 +11,37 @@ from .views import(
     veiculo_novo,
     movrot_novo,
     mensalista_novo,
-    movmen_novo
+    movmen_novo,
+    pessoa_update,
+    veiculo_update,
+    mensalista_update,
+    movrot_update,
 )
-
-
 
 
 urlpatterns = [
     re_path('^$', home, name='core_home'),
     re_path('^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
     re_path('^pessoas-novo/$', pessoa_novo, name='core_pessoa_novo'),
+    re_path(r'^pessoas-update/(?P<id>\d+)/$', pessoa_update, name='core_pessoa_update'),
+
     re_path('^veiculos/$', lista_veiculos, name='core_lista_veiculos'),
     re_path('^veiculos-novo/$', veiculo_novo, name='core_veiculo_novo'),
+    re_path(r'^veiculos-update/(?P<id>\d+)/$', veiculo_update, name='core_veiculo_update'),
+
+
     re_path('^movrot/$', lista_movrot, name='core_lista_movrot'),
     re_path('^movrot-novo/$', movrot_novo, name='core_movrot_novo'),
+    re_path(r'^movrot-update/(?P<id>\d+)/$', movrot_update, name='core_movrot_update'),
+
     re_path('^mensalistas/$', lista_mensalistas, name='core_lista_mensalistas'),
     re_path('^mensalista-novo/$', mensalista_novo, name='core_mensalista_novo'),
+    re_path(r'^mensalista-update/(?P<id>\d+)/$', mensalista_update, name='core_mensalista_update'),
+
     re_path('^movmen/$', lista_movmen, name='core_lista_movmen'),
     re_path('^movmen-novo/$', movmen_novo, name='core_movmen_novo'),
 ]
+
+
 
 
