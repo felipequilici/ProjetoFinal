@@ -18,9 +18,9 @@ class marca(models.Model):
 class veiculo(models.Model):
     marca = models.ForeignKey(marca, on_delete=models.SET_NULL, null=True)
     dono = models.ForeignKey(pessoa, on_delete=models.SET_NULL, null=True)
-    placa = models.CharField(max_length=7)
-    modelo = models.CharField(max_length=30)
-    cor = models.CharField(max_length=20)
+    placa = models.CharField(max_length=7, null=True)
+    modelo = models.CharField(max_length=30, null=True)
+    cor = models.CharField(max_length=20, null=True)
     observacoes = models.TextField()
     def __str__(self):
         return self.modelo + " - " + self.placa + " - " + str(self.dono)

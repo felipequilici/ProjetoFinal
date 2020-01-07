@@ -8,7 +8,9 @@
 <h2>Lista Mensalidades</h2>
 <ul>
     {% for mov in movmen%}
-        <li>  {{mov.dataPagamento}} - {{mov}} - {{mov.total}}  </li>
+        <li>
+            <a href="{% url 'core_movmen_update' mov.id%}">{{mov.dataPagamento}} - {{mov}} - {{mov.total}}</a>
+        </li>
     {% endfor%}
 </ul>
 

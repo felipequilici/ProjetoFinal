@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deletar Pessoa</title>
+</head>
+<body>
+    <h2> Deseja deletar: {{pessoa}}</h2>
+    <form method='POST' action="{%url 'core_pessoa_delete' pessoa.id %}">
+        {% csrf_token %}
+        <button type="submit">Deletar</button>
+
+    </form>
+</body>
+</html>

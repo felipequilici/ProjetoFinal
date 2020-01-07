@@ -16,6 +16,9 @@ from .views import(
     veiculo_update,
     mensalista_update,
     movrot_update,
+    movmen_update,
+    pessoa_delete,
+    veiculo_delete,
 )
 
 
@@ -24,11 +27,12 @@ urlpatterns = [
     re_path('^pessoas/$', lista_pessoas, name='core_lista_pessoas'),
     re_path('^pessoas-novo/$', pessoa_novo, name='core_pessoa_novo'),
     re_path(r'^pessoas-update/(?P<id>\d+)/$', pessoa_update, name='core_pessoa_update'),
+    re_path(r'^pessoas-delete/(?P<id>\d+)/$', pessoa_delete, name='core_pessoa_delete'),
 
     re_path('^veiculos/$', lista_veiculos, name='core_lista_veiculos'),
     re_path('^veiculos-novo/$', veiculo_novo, name='core_veiculo_novo'),
     re_path(r'^veiculos-update/(?P<id>\d+)/$', veiculo_update, name='core_veiculo_update'),
-
+    re_path(r'^veiculos-delete/(?P<id>\d+)/$', veiculo_delete, name='core_veiculo_delete'),
 
     re_path('^movrot/$', lista_movrot, name='core_lista_movrot'),
     re_path('^movrot-novo/$', movrot_novo, name='core_movrot_novo'),
@@ -40,6 +44,7 @@ urlpatterns = [
 
     re_path('^movmen/$', lista_movmen, name='core_lista_movmen'),
     re_path('^movmen-novo/$', movmen_novo, name='core_movmen_novo'),
+    re_path(r'^movmen-update/(?P<id>\d+)/$', movmen_update, name='core_movmen_update'),
 ]
 
 

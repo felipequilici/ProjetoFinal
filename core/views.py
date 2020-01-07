@@ -49,6 +49,15 @@ def pessoa_update(request, id):
         return render(request, 'core/update_pessoa.html', data)
 
 
+def pessoa_delete(request, id):
+    Pessoa = pessoa.objects.get(id=id)
+    if request.method=='POST':
+        Pessoa.delete()
+        return redirect('core_lista_pessoas')
+    else:
+        return render(request, 'core/pessoa_delete.html', {'pessoa':Pessoa})
+
+
 
 def lista_veiculos(request):
     veiculos = veiculo.objects.all()
@@ -75,6 +84,14 @@ def veiculo_update(request, id):
             return redirect('core_lista_veiculos')
     else:
         return render(request, 'core/update_veiculo.html', data)
+
+def veiculo_delete(request, id):
+    Veiculo = veiculo.objects.get(id=id)
+    if request.method=='POST':
+        Veiculo.delete()
+        return redirect('core_lista_veiculos')
+    else:
+        return render(request, 'core/veiculo_delete.html', {'veiculo':Veiculo})
 
 def lista_movrot(request):
     movrot = movimento_rotativo.objects.all()
@@ -141,4 +158,17 @@ def movmen_novo(request):
         form.save()
     return redirect('core_lista_movmen')
 
+def movmen_update(request, id):
+    data= {}
+    Men = MovimentosMensalista.objects.get(id=id)
+    form = MovmenForm(request.POST or None, instance=Men)
+    data['movmen'] = Men
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_movmen')
+    else:
+        return render(request, 'core/update_movmen.html', data)
 
