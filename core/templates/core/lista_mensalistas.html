@@ -26,18 +26,35 @@
   </li>
 </ul>
 
-<h1>Lista Mensalistas</h1>
 <div class="row">
-    <div class="col-sm-6">
-        <ul>
-            {% for mensalista in mensalistas%}
-                <li>
-                    <a href="{% url 'core_mensalista_update' mensalista.id%}">{{mensalista}}</a>
-                </li>
-            {% endfor%}
-        </ul>
+    <div class="col-sm-8">
+        <h2>Lista Mensalistas</h2>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Inicio</th>
+              <th scope="col">Mensalidade</th>
+            </tr>
+          </thead>
+          {% for mensalista in mensalistas%}
+          <tbody>
+            <tr>
+              <th scope="row">{{mensalista.id}}</th>
+              <td><a href="{% url 'core_mensalista_update' mensalista.id%}">{{mensalista.veiculo.dono}}</a></td>
+              <td>{{mensalista.veiculo.placa}}</td>
+              <td>{{mensalista.inicio}}</td>
+              <td>{{mensalista.mensalidade}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
+        <h2>Adicionar Mensalista</h2>
         <form action="{% url 'core_mensalista_novo'%} " method="POST">
             {% csrf_token %}
             {{ form|bootstrap }}

@@ -26,18 +26,37 @@
     </li>
 </ul>
 
-<h1>Lista Mensalidades</h1>
 <div class="row">
-    <div class="col-sm-6">
-        <ul>
-            {% for mov in movmen%}
-                <li>
-                    <a href="{% url 'core_movmen_update' mov.id%}">{{mov.dataPagamento}} - {{mov}} - {{mov.total}}</a>
-                </li>
-            {% endfor%}
-        </ul>
+    <div class="col-sm-8">
+        <h2>Lista Mensalidades</h2>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Dono</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Data Pagamento</th>
+              <th scope="col">Mensalidade</th>
+            </tr>
+          </thead>
+          {% for mov in movmen%}
+          <tbody>
+            <tr>
+              <th scope="row">{{mov.id}}</th>
+              <td><a href="{% url 'core_movmen_update' mov.id%}">{{mov.mensalista.veiculo.placa}}</a></td>
+              <td>{{mov.mensalista.veiculo.dono}}</td>
+              <td>{{mov.mensalista.veiculo.modelo}}</td>
+              <td>{{mov.dataPagamento}}</td>
+              <td>{{mov.total}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
+        <h2>Adicionar Mensalidade</h2>
         <form action="{% url 'core_movmen_novo'%} " method="POST">
             {% csrf_token %}
             {{ form|bootstrap }}

@@ -25,18 +25,41 @@
     <a class="nav-link" href="{% url 'core_lista_movmen' %}">Mensalidades</a>
   </li>
 </ul>
-<h1>Lista Movimentos Rotativos</h1>
 <div class="row">
-    <div class="col-sm-6">
-        <ul>
-            {% for mov in movrot%}
-                <li>
-                    <a href="{% url 'core_movrot_update' mov.id%}">{{mov.entrada}} - {{mov}} - {{mov.total}}</a>
-                </li>
-            {% endfor%}
-        </ul>
+    <div class="col-sm-12">
+        <h2>Lista Movimentações Rotativas</h2>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Dono</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Entrada</th>
+              <th scope="col">Saída</th>
+              <th scope="col">Total Horas</th>
+              <th scope="col">Total Pago</th>
+            </tr>
+          </thead>
+          {% for mov in movrot%}
+          <tbody>
+            <tr>
+              <th scope="row">{{mov.id}}</th>
+              <td><a href="{% url 'core_movrot_update' mov.id%}">{{mov.veiculo.placa}}</a></td>
+              <td>{{mov.veiculo.dono}}</td>
+              <td>{{mov.veiculo.modelo}}</td>
+              <td>{{mov.entrada}}</td>
+              <td>{{mov.saida}}</td>
+              <td>{{mov.total_horas}}</td>
+              <td>{{mov.total}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-12">
+        <h2>Adicionar Movimentação Rotativa</h2>
         <form action="{% url 'core_movrot_novo'%} " method="POST">
             {% csrf_token %}
             {{ form|bootstrap }}
