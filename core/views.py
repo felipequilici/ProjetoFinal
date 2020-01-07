@@ -119,6 +119,14 @@ def movrot_update(request, id):
     else:
         return render(request, 'core/update_movrot.html', data)
 
+def movrot_delete(request, id):
+    movrot = movimento_rotativo.objects.get(id=id)
+    if request.method=='POST':
+        movrot.delete()
+        return redirect('core_lista_movrot')
+    else:
+        return render(request, 'core/movrot_delete.html', {'movrot':movrot})
+
 def lista_mensalistas(request):
     mensalistas = mensalista.objects.all()
     form = MensalistaForm()
@@ -146,6 +154,14 @@ def mensalista_update(request, id):
     else:
         return render(request, 'core/update_mensalista.html', data)
 
+def mensalista_delete(request, id):
+    Mensalista = mensalista.objects.get(id=id)
+    if request.method=='POST':
+        Mensalista.delete()
+        return redirect('core_lista_mensalistas')
+    else:
+        return render(request, 'core/mensalista_delete.html', {'mensalista':Mensalista})
+
 def lista_movmen(request):
     movmen = MovimentosMensalista.objects.all()
     form = MovmenForm()
@@ -172,3 +188,10 @@ def movmen_update(request, id):
     else:
         return render(request, 'core/update_movmen.html', data)
 
+def movmen_delete(request, id):
+    movmen = MovimentosMensalista.objects.get(id=id)
+    if request.method=='POST':
+        movmen.delete()
+        return redirect('core_lista_movmen')
+    else:
+        return render(request, 'core/movmen_delete.html', {'movmen':movmen})

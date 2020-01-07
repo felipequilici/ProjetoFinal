@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deletar Movrot</title>
+</head>
+<body>
+    <h2> Deseja deletar: {{movrot}}</h2>
+    <form method='POST' action="{%url 'core_movrot_delete' movrot.id %}">
+        {% csrf_token %}
+        <button type="submit">Deletar</button>
+
+    </form>
+</body>
+</html>

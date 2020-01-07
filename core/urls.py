@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import re_path, include
+
 from .views import(
     home,
     lista_pessoas,
@@ -19,8 +20,10 @@ from .views import(
     movmen_update,
     pessoa_delete,
     veiculo_delete,
+    movrot_delete,
+    mensalista_delete,
+    movmen_delete,
 )
-
 
 urlpatterns = [
     re_path('^$', home, name='core_home'),
@@ -37,14 +40,18 @@ urlpatterns = [
     re_path('^movrot/$', lista_movrot, name='core_lista_movrot'),
     re_path('^movrot-novo/$', movrot_novo, name='core_movrot_novo'),
     re_path(r'^movrot-update/(?P<id>\d+)/$', movrot_update, name='core_movrot_update'),
+    re_path(r'^movrot-delete/(?P<id>\d+)/$', movrot_delete, name='core_movrot_delete'),
 
     re_path('^mensalistas/$', lista_mensalistas, name='core_lista_mensalistas'),
     re_path('^mensalista-novo/$', mensalista_novo, name='core_mensalista_novo'),
     re_path(r'^mensalista-update/(?P<id>\d+)/$', mensalista_update, name='core_mensalista_update'),
+    re_path(r'^mensalista-delete/(?P<id>\d+)/$', mensalista_delete, name='core_mensalista_delete'),
 
     re_path('^movmen/$', lista_movmen, name='core_lista_movmen'),
     re_path('^movmen-novo/$', movmen_novo, name='core_movmen_novo'),
     re_path(r'^movmen-update/(?P<id>\d+)/$', movmen_update, name='core_movmen_update'),
+    re_path(r'^movmen-delete/(?P<id>\d+)/$', movmen_delete, name='core_movmen_delete'),
+
 ]
 
 
