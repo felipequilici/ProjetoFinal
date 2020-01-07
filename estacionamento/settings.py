@@ -9,7 +9,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','https://estacionamentobalao.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','estacionamentobalao.herokuapp.com','estacionamentobalao.herokuapp.com']
 
 
 
