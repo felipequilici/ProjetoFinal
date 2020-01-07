@@ -15,9 +15,9 @@
         {{ form|bootstrap }}
 
         <button class="btn btn-success" type="submit"> Salvar </button>
+        <a href="{% url 'core_movrot_delete' movrot.id%}" class="btn btn-danger" role="button" aria-pressed="true">Deletar</a>
     </form>
 
-<a href="{% url 'core_movrot_delete' movrot.id%}" class="btn btn-danger" role="button" aria-pressed="true">Deletar</a>
 
 {% endblock %}
 </body>
