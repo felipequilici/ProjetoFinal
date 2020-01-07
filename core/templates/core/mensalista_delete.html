@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% block main %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +10,9 @@
     <h2> Deseja deletar: {{mensalista}}</h2>
     <form method='POST' action="{%url 'core_mensalista_delete' mensalista.id %}">
         {% csrf_token %}
-        <button type="submit">Deletar</button>
+        <button class="btn btn-danger" type="submit">Deletar</button>
 
     </form>
+{% endblock %}
 </body>
 </html>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% block main %}
+{% load bootstrap %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,12 +12,13 @@
 
     <form action="{% url 'core_movrot_update' movrot.id%}" method="POST">
         {% csrf_token%}
-        {{ form }}
+        {{ form|bootstrap }}
 
-        <button type="submit"> Salvar </button>
+        <button class="btn btn-success" type="submit"> Salvar </button>
     </form>
 
-<a href="{% url 'core_movrot_delete' movrot.id%}">Deletar</a>
+<a href="{% url 'core_movrot_delete' movrot.id%}" class="btn btn-danger" role="button" aria-pressed="true">Deletar</a>
 
+{% endblock %}
 </body>
 </html>

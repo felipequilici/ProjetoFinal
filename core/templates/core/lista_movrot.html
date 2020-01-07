@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% block main %}
+{% load bootstrap %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,19 +9,25 @@
 </head>
 <body>
 <h2>Lista Movimentos Rotativos</h2>
-<ul>
-    {% for mov in movrot%}
-        <li>
-            <a href="{% url 'core_movrot_update' mov.id%}">{{mov.entrada}} - {{mov}} - {{mov.total}}</a>
-        </li>
-    {% endfor%}
-</ul>
+<div class="row">
+    <div class="col-sm-6">
+        <ul>
+            {% for mov in movrot%}
+                <li>
+                    <a href="{% url 'core_movrot_update' mov.id%}">{{mov.entrada}} - {{mov}} - {{mov.total}}</a>
+                </li>
+            {% endfor%}
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <form action="{% url 'core_movrot_novo'%} " method="POST">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button class="btn btn-primary type="submit"> Cadastrar </button>
+        </form>
+    </div>
+</div>
 
-<form action="{% url 'core_movrot_novo'%} " method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit"> Cadastrar </button>
-</form>
-
+{% endblock %}
 </body>
 </html>
